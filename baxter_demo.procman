@@ -1,0 +1,42 @@
+group "Demos" {
+    cmd "Puppet" {
+        exec = "rosrun joint_velocity puppet.py left";
+        host = "robot-67";
+    }
+    cmd "Wobbler" {
+        exec = "rosrun joint_velocity wobbler.py";
+        host = "robot-67";
+    }
+    cmd "Head Wobbler" {
+        exec = "rosrun head_control wobbler.py";
+        host = "robot-67";
+    }
+}
+
+group "Perception" {
+    cmd "Left Hand Camera Viewer" {
+        exec = "rosrun image_view image_view image:=/cameras/left_hand_camera/image";
+        host = "robot-67";
+    }
+    cmd "Right Hand Camera Viewer" {
+        exec = "rosrun image_view image_view image:=/cameras/right_hand_camera/image";
+        host = "robot-67";
+    }
+    cmd "Left Hand Camera Viewer (schooner)" {
+        exec = "rosrun image_view image_view image:=/cameras/left_hand_camera/image";
+        host = "schooner";
+    }
+}
+
+group "Starting" {
+    cmd "Enable Robot" {
+        exec = "rosrun tools enable_robot.py -e";
+        host = "robot-67";
+    }
+    cmd "Robot Status" {
+        exec = "rosrun tools enable_robot.py -s";
+        host = "robot-67";
+    }
+}
+
+
